@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Game-Day Atmosphere in Missouri – Statewide</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 12px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+    .widget {
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 14px 14px;
+      background: #f9fafb;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+    p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .bar-row {
+      margin-top: 8px;
+    }
+    .label-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 2px;
+      color: #374151;
+    }
+    .bar-bg {
+      width: 100%;
+      height: 24px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+    .chiefs { background: #d21f26; }
+    .cardinals { background: #1e3a8a; }
+    .blues { background: #2563eb; }
+    .tigers { background: #fbbf24; color: #111827; }
+    .battlehawks { background: #7c3aed; }
+    .other { background: #d4d4d4; color: #111827; }
+
+    .src {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .src a {
+      color: #0f766e;
+      text-decoration: none;
+      border-bottom: 1px dotted #0f766e;
+    }
+    .embed-block {
+      margin-top: 8px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .embed-btn {
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      cursor: pointer;
+    }
+    .embed-btn:hover {
+      background: #f3f4f6;
+    }
+    textarea {
+      width: 100%;
+      height: 90px;
+      margin-top: 6px;
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      padding: 6px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <section class="widget" aria-labelledby="title">
+    <h2 id="title">Best Game-Day Atmosphere in Missouri – Statewide</h2>
+    <p>
+      When fans are asked who brings the noise, Arrowhead wins by a landslide — but Busch and Enterprise still matter.
+    </p>
+
+    <!-- Chiefs 59, Cards 21, Blues 8, Tigers 8, Battlehawks 2, Other 2 -->
+    <div class="bar-row">
+      <div class="label-line"><span>Chiefs fans (Arrowhead)</span><span>59%</span></div>
+      <div class="bar-bg" role="img" aria-label="59% say Chiefs fans at Arrowhead have the best atmosphere">
+        <div class="bar-fill chiefs" style="width:59%;">59%</div>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <div class="label-line"><span>Cardinals fans (Busch Stadium)</span><span>21%</span></div>
+      <div class="bar-bg" role="img" aria-label="21% say Cardinals fans at Busch have the best atmosphere">
+        <div class="bar-fill cardinals" style="width:21%;">21%</div>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <div class="label-line"><span>Blues fans (Enterprise Center)</span><span>8%</span></div>
+      <div class="bar-bg" role="img" aria-label="8% say Blues fans have the best atmosphere">
+        <div class="bar-fill blues" style="width:8%;">8%</div>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <div class="label-line"><span>Missouri Tigers fans (Columbia)</span><span>8%</span></div>
+      <div class="bar-bg" role="img" aria-label="8% say Missouri Tigers fans have the best atmosphere">
+        <div class="bar-fill tigers" style="width:8%;">8%</div>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <div class="label-line"><span>Battlehawks fans (The Dome)</span><span>2%</span></div>
+      <div class="bar-bg" role="img" aria-label="2% say Battlehawks fans have the best atmosphere">
+        <div class="bar-fill battlehawks" style="width:2%;">2%</div>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <div class="label-line"><span>Other</span><span>2%</span></div>
+      <div class="bar-bg" role="img" aria-label="2% say another fanbase has the best atmosphere">
+        <div class="bar-fill other" style="width:2%;">2%</div>
+      </div>
+    </div>
+
+    <p class="src">
+      Source: Action Network — Missouri Sports Fans Survey 2025<br>
+      Full article: <a href="https://www.actionnetwork.com/entertainment/missouri-sports-fan-loyalties" target="_blank" rel="noopener noreferrer">Missouri Sports Fan Loyalties</a>
+    </p>
+
+    <div class="embed-block">
+      <button type="button" class="embed-btn" onclick="toggleEmbed()">Get embed code</button>
+      <div id="embed-wrap" style="display:none;">
+        <textarea readonly><iframe src="https://aharris-jpg.github.io/missouri-survey/atmosphere-statewide.html" width="100%" height="260" style="border:0;" loading="lazy"></iframe></textarea>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleEmbed() {
+      var wrap = document.getElementById('embed-wrap');
+      wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
