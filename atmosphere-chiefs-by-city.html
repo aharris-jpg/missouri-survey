@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrowhead Advantage – Chiefs Atmosphere by City</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 12px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+    .widget {
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 14px 14px;
+      background: #f9fafb;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+    p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .row {
+      margin-top: 6px;
+    }
+    .city-label {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #374151;
+    }
+    .bar-bg {
+      width: 100%;
+      height: 22px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .seg {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #f9fafb;
+      background: #d21f26;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .src {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .src a {
+      color: #0f766e;
+      text-decoration: none;
+      border-bottom: 1px dotted #0f766e;
+    }
+    .embed-block {
+      margin-top: 8px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .embed-btn {
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      cursor: pointer;
+    }
+    .embed-btn:hover {
+      background: #f3f4f6;
+    }
+    textarea {
+      width: 100%;
+      height: 90px;
+      margin-top: 6px;
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      padding: 6px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <section class="widget" aria-labelledby="title">
+    <h2 id="title">Arrowhead Advantage – Chiefs Atmosphere by City</h2>
+    <p>
+      How likely fans in each city are to say Chiefs fans at Arrowhead have the best game-day atmosphere in Missouri.
+    </p>
+
+    <!-- KC 91, STL 25, Springfield 69, Columbia 59, Cape 34, Joplin 71 -->
+    <div class="row">
+      <div class="city-label">Kansas City – 91%</div>
+      <div class="bar-bg" role="img" aria-label="Kansas City: 91%">
+        <div class="seg" style="width:91%;">91%</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="city-label">St. Louis – 25%</div>
+      <div class="bar-bg" role="img" aria-label="St. Louis: 25%">
+        <div class="seg" style="width:25%;">25%</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="city-label">Springfield – 69%</div>
+      <div class="bar-bg" role="img" aria-label="Springfield: 69%">
+        <div class="seg" style="width:69%;">69%</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="city-label">Columbia – 59%</div>
+      <div class="bar-bg" role="img" aria-label="Columbia: 59%">
+        <div class="seg" style="width:59%;">59%</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="city-label">Cape Girardeau – 34%</div>
+      <div class="bar-bg" role="img" aria-label="Cape Girardeau: 34%">
+        <div class="seg" style="width:34%;">34%</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="city-label">Joplin – 71%</div>
+      <div class="bar-bg" role="img" aria-label="Joplin: 71%">
+        <div class="seg" style="width:71%;">71%</div>
+      </div>
+    </div>
+
+    <p class="src">
+      Source: Action Network — Missouri Sports Fans Survey 2025<br>
+      Full article: <a href="https://www.actionnetwork.com/entertainment/missouri-sports-fan-loyalties" target="_blank" rel="noopener noreferrer">Missouri Sports Fan Loyalties</a>
+    </p>
+
+    <div class="embed-block">
+      <button type="button" class="embed-btn" onclick="toggleEmbed()">Get embed code</button>
+      <div id="embed-wrap" style="display:none;">
+        <textarea readonly><iframe src="https://aharris-jpg.github.io/missouri-survey/atmosphere-chiefs-by-city.html" width="100%" height="260" style="border:0;" loading="lazy"></iframe></textarea>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleEmbed() {
+      var wrap = document.getElementById('embed-wrap');
+      wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
