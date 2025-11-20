@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Favorite Team Breakdown by City — Missouri Fans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#f3f4f6; margin:0; padding:16px; color:#111827; }
+    .mo-chart { max-width:900px; margin:0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; }
+    .mo-title { margin:0 0 4px; font-size:18px; font-weight:700; }
+    .mo-sub { margin:0 0 12px; font-size:13px; color:#6b7280; }
+    .mo-legend { font-size:11px; margin:4px 0 12px; color:#4b5563; }
+    .mo-legend span { display:inline-flex; align-items:center; margin-right:8px; margin-bottom:4px; }
+    .mo-swatch { width:10px; height:10px; border-radius:3px; margin-right:4px; display:inline-block; }
+    .mo-row { margin-bottom:12px; }
+    .mo-city-label { font-size:13px; margin-bottom:4px; font-weight:600; }
+    .mo-bar-wrap { display:flex; height:22px; border-radius:999px; overflow:hidden; background:#f9fafb; border:1px solid #e5e7eb; }
+    .mo-seg { height:100%; }
+    .chiefs { background:#d21f26; }
+    .cards  { background:#f97316; }
+    .blues  { background:#2563eb; }
+    .royals { background:#0ea5e9; }
+    .rams   { background:#facc15; }
+    .other  { background:#9ca3af; }
+    .mo-labels { display:flex; flex-wrap:wrap; gap:6px; font-size:11px; color:#4b5563; margin-top:3px; }
+    .mo-source { font-size:11px; color:#6b7280; margin-top:10px; }
+    .mo-source a { color:#0369a1; text-decoration:none; }
+    .mo-source a:hover { text-decoration:underline; }
+    .mo-embed { margin-top:14px; border-top:1px solid #e5e7eb; padding-top:10px; }
+    .mo-embed button { font-size:12px; padding:6px 10px; border-radius:6px; border:1px solid #d1d5db; background:#f9fafb; cursor:pointer; }
+    .mo-embed button:hover { background:#f3f4f6; }
+    .mo-embed textarea { width:100%; height:90px; margin-top:8px; font-size:11px; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; border-radius:6px; border:1px solid #d1d5db; padding:6px; resize:vertical; }
+  </style>
+</head>
+<body>
+  <section class="mo-chart" aria-labelledby="mo-title">
+    <h1 id="mo-title" class="mo-title">Favorite Missouri Team by City</h1>
+    <p class="mo-sub">
+      Stacked share of favorite teams in each city (Chiefs, Cardinals, Blues, Royals, Rams and other/none combined).
+    </p>
+
+    <p class="mo-legend">
+      <span><span class="mo-swatch chiefs"></span>Chiefs</span>
+      <span><span class="mo-swatch cards"></span>Cardinals</span>
+      <span><span class="mo-swatch blues"></span>Blues</span>
+      <span><span class="mo-swatch royals"></span>Royals</span>
+      <span><span class="mo-swatch rams"></span>Rams</span>
+      <span><span class="mo-swatch other"></span>Other / none</span>
+    </p>
+
+    <!-- KC -->
+    <div class="mo-row">
+      <div class="mo-city-label">Kansas City</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg chiefs" style="width:76%;"></div>
+        <div class="mo-seg cards"  style="width:2%;"></div>
+        <div class="mo-seg blues"  style="width:1%;"></div>
+        <div class="mo-seg royals" style="width:12%;"></div>
+        <div class="mo-seg rams"   style="width:3%;"></div>
+        <div class="mo-seg other"  style="width:6%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Chiefs 76%</span><span>Royals 12%</span><span>Cardinals 2%</span>
+        <span>Blues 1%</span><span>Rams 3%</span><span>Other/none ~6%</span>
+      </div>
+    </div>
+
+    <!-- St. Louis -->
+    <div class="mo-row">
+      <div class="mo-city-label">St. Louis</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg cards"  style="width:45%;"></div>
+        <div class="mo-seg chiefs" style="width:18%;"></div>
+        <div class="mo-seg blues"  style="width:18%;"></div>
+        <div class="mo-seg royals" style="width:1%;"></div>
+        <div class="mo-seg rams"   style="width:0%;"></div>
+        <div class="mo-seg other"  style="width:18%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Cardinals 45%</span><span>Chiefs 18%</span><span>Blues 18%</span>
+        <span>Royals 1%</span><span>Other/none ~18%</span>
+      </div>
+    </div>
+
+    <!-- Springfield -->
+    <div class="mo-row">
+      <div class="mo-city-label">Springfield</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg chiefs" style="width:56%;"></div>
+        <div class="mo-seg cards"  style="width:16%;"></div>
+        <div class="mo-seg blues"  style="width:2%;"></div>
+        <div class="mo-seg royals" style="width:4%;"></div>
+        <div class="mo-seg rams"   style="width:3%;"></div>
+        <div class="mo-seg other"  style="width:19%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Chiefs 56%</span><span>Cardinals 16%</span><span>Royals 4%</span>
+        <span>Blues 2%</span><span>Rams 3%</span><span>Other/none ~19%</span>
+      </div>
+    </div>
+
+    <!-- Columbia -->
+    <div class="mo-row">
+      <div class="mo-city-label">Columbia</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg chiefs" style="width:59%;"></div>
+        <div class="mo-seg cards"  style="width:23%;"></div>
+        <div class="mo-seg blues"  style="width:6%;"></div>
+        <div class="mo-seg royals" style="width:4%;"></div>
+        <div class="mo-seg rams"   style="width:2%;"></div>
+        <div class="mo-seg other"  style="width:6%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Chiefs 59%</span><span>Cardinals 23%</span><span>Blues 6%</span>
+        <span>Royals 4%</span><span>Rams 2%</span><span>Other/none 6%</span>
+      </div>
+    </div>
+
+    <!-- Cape Girardeau -->
+    <div class="mo-row">
+      <div class="mo-city-label">Cape Girardeau</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg cards"  style="width:50%;"></div>
+        <div class="mo-seg chiefs" style="width:27%;"></div>
+        <div class="mo-seg blues"  style="width:9%;"></div>
+        <div class="mo-seg royals" style="width:0%;"></div>
+        <div class="mo-seg rams"   style="width:3%;"></div>
+        <div class="mo-seg other"  style="width:11%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Cardinals 50%</span><span>Chiefs 27%</span><span>Blues 9%</span>
+        <span>Rams 3%</span><span>Other/none 11%</span>
+      </div>
+    </div>
+
+    <!-- Joplin -->
+    <div class="mo-row">
+      <div class="mo-city-label">Joplin</div>
+      <div class="mo-bar-wrap">
+        <div class="mo-seg chiefs" style="width:63%;"></div>
+        <div class="mo-seg cards"  style="width:16%;"></div>
+        <div class="mo-seg blues"  style="width:3%;"></div>
+        <div class="mo-seg royals" style="width:6%;"></div>
+        <div class="mo-seg rams"   style="width:4%;"></div>
+        <div class="mo-seg other"  style="width:8%;"></div>
+      </div>
+      <div class="mo-labels">
+        <span>Chiefs 63%</span><span>Cardinals 16%</span><span>Royals 6%</span>
+        <span>Blues 3%</span><span>Rams 4%</span><span>Other/none 8%</span>
+      </div>
+    </div>
+
+    <p class="mo-source">
+      Source: <a href="https://www.actionnetwork.com/entertainment/missouri-sports-fandom-survey-2025" target="_blank" rel="noopener noreferrer">
+      Action Network — Missouri Sports Fandom Survey 2025</a>.
+    </p>
+
+    <div class="mo-embed">
+      <button type="button" id="mo-embed-btn">Embed this chart</button>
+      <textarea id="mo-embed-code" style="display:none;" readonly></textarea>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var EMBED_URL = "https://aharris-jpg.github.io/missouri-survey/city-favorite-team-breakdown.html";
+      var btn = document.getElementById("mo-embed-btn");
+      var box = document.getElementById("mo-embed-code");
+      if (!btn || !box) return;
+      var code = '<iframe src="' + EMBED_URL +
+        '" width="100%" height="360" style="border:none;max-width:900px;" loading="lazy"></iframe>';
+      box.value = code;
+      btn.addEventListener("click", function () {
+        if (box.style.display === "none") {
+          box.style.display = "block";
+          btn.innerText = "Hide embed code";
+        } else {
+          box.style.display = "none";
+          btn.innerText = "Embed this chart";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
