@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Missouri Fans – Statewide Favorite Teams</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 12px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+    .widget {
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 14px 14px;
+      background: #f9fafb;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+    p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .bar-wrapper {
+      margin-top: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #f3f4f6;
+    }
+    .bar-row {
+      display: flex;
+      height: 42px;
+    }
+    .seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #f9fafb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .seg.chiefs { background: #d21f26; }
+    .seg.cardinals { background: #1e3a8a; }
+    .seg.blues { background: #2563eb; }
+    .seg.royals { background: #0ea5e9; }
+    .seg.springfield-cards { background: #8b5cf6; }
+    .seg.rams { background: #64748b; }
+    .seg.other { background: #d4d4d4; color: #111827; }
+    .seg.none { background: #a3a3a3; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #4b5563;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.25);
+    }
+    .src {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .src a {
+      color: #0f766e;
+      text-decoration: none;
+      border-bottom: 1px dotted #0f766e;
+    }
+    .embed-block {
+      margin-top: 8px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .embed-btn {
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      cursor: pointer;
+    }
+    .embed-btn:hover {
+      background: #f3f4f6;
+    }
+    textarea {
+      width: 100%;
+      height: 90px;
+      margin-top: 6px;
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      padding: 6px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <section class="widget" aria-labelledby="title">
+    <h2 id="title">Missouri Fans – Statewide Favorite Teams</h2>
+    <p>
+      Statewide, half of Missouri sports fans live in Chiefs Kingdom, with Cardinals Country holding a strong second place.
+    </p>
+
+    <!-- Data: Chiefs 50, Cards 23, Blues 9, Royals 5, Springfield Cards 2, Rams 2, Other 4, None 5 -->
+    <div class="bar-wrapper" role="img" aria-label="Stacked bar chart showing Missouri fans' favorite teams statewide">
+      <div class="bar-row">
+        <div class="seg chiefs" style="width:50%;">Chiefs 50%</div>
+        <div class="seg cardinals" style="width:23%;">Cardinals 23%</div>
+        <div class="seg blues" style="width:9%;">Blues 9%</div>
+        <div class="seg royals" style="width:5%;">Royals 5%</div>
+        <div class="seg Springfield-cards" style="width:2%;background:#8b5cf6;">Springfield 2%</div>
+        <div class="seg rams" style="width:2%;">Rams 2%</div>
+        <div class="seg other" style="width:4%;">Other 4%</div>
+        <div class="seg none" style="width:5%;">None 5%</div>
+      </div>
+    </div>
+
+    <div class="legend" aria-hidden="true">
+      <span class="legend-item"><span class="swatch" style="background:#d21f26;"></span> Chiefs</span>
+      <span class="legend-item"><span class="swatch" style="background:#1e3a8a;"></span> Cardinals</span>
+      <span class="legend-item"><span class="swatch" style="background:#2563eb;"></span> Blues</span>
+      <span class="legend-item"><span class="swatch" style="background:#0ea5e9;"></span> Royals</span>
+      <span class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span> Springfield Cardinals</span>
+      <span class="legend-item"><span class="swatch" style="background:#64748b;"></span> LA Rams</span>
+      <span class="legend-item"><span class="swatch" style="background:#d4d4d4;"></span> Other</span>
+      <span class="legend-item"><span class="swatch" style="background:#a3a3a3;"></span> None of these</span>
+    </div>
+
+    <p class="src">
+      Source: Action Network — Missouri Sports Fans Survey 2025<br>
+      Full article: <a href="https://www.actionnetwork.com/entertainment/missouri-sports-fan-loyalties" target="_blank" rel="noopener noreferrer">Missouri Sports Fan Loyalties</a>
+    </p>
+
+    <div class="embed-block">
+      <button type="button" class="embed-btn" onclick="toggleEmbed()">Get embed code</button>
+      <div id="embed-wrap" style="display:none;">
+        <textarea readonly><iframe src="https://aharris-jpg.github.io/missouri-survey/favorites-statewide.html" width="100%" height="220" style="border:0;" loading="lazy"></iframe></textarea>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleEmbed() {
+      var wrap = document.getElementById('embed-wrap');
+      wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
