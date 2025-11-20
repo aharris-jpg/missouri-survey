@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Game-Day Atmosphere by City – Chiefs vs. Cardinals Fans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      color: #111827;
+    }
+
+    .chart-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px 16px 18px;
+      box-sizing: border-box;
+    }
+
+    .chart-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .chart-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 0 0 10px;
+    }
+
+    .chart-note {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 0 0 12px;
+    }
+
+    .legend {
+      font-size: 12px;
+      margin: 0 0 10px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 12px;
+    }
+
+    .legend-box {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      margin-right: 6px;
+      display: inline-block;
+    }
+
+    .legend-box.chiefs {
+      background: #b91c1c;
+    }
+
+    .legend-box.cardinals {
+      background: #1d4ed8;
+    }
+
+    .chart-grid {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .chart-grid th,
+    .chart-grid td {
+      padding: 6px 4px;
+      vertical-align: middle;
+    }
+
+    .chart-grid th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      color: #6b7280;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .city-cell {
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .bar-cell {
+      width: 70%;
+    }
+
+    .bar-track {
+      background: #f3f4f6;
+      border-radius: 999px;
+      height: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      border-radius: 999px;
+    }
+
+    .bar.chiefs {
+      left: 2px;
+      background: #b91c1c;
+    }
+
+    .bar.cardinals {
+      right: 2px;
+      background: #1d4ed8;
+    }
+
+    .value-label {
+      font-size: 11px;
+      color: #111827;
+      position: absolute;
+      top: 2px;
+      padding: 0 4px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+
+    .value-label.left {
+      left: 6px;
+      color: #f9fafb;
+    }
+
+    .value-label.right {
+      right: 6px;
+      color: #f9fafb;
+    }
+
+    .percent-cell {
+      width: 90px;
+      font-size: 12px;
+      color: #374151;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .source {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+
+    .source a {
+      color: #0f766e;
+      text-decoration: none;
+      border-bottom: 1px dotted currentColor;
+    }
+
+    .source a:hover {
+      text-decoration: underline;
+    }
+
+    .embed-wrap {
+      margin-top: 12px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 10px;
+    }
+
+    .embed-label {
+      font-size: 12px;
+      color: #4b5563;
+      margin: 0 0 6px;
+    }
+
+    .embed-button,
+    .copy-button {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      cursor: pointer;
+      color: #111827;
+      margin-right: 6px;
+    }
+
+    .embed-button:hover,
+    .copy-button:hover {
+      background: #f3f4f6;
+    }
+
+    .embed-box {
+      margin-top: 8px;
+      display: none;
+    }
+
+    .embed-textarea {
+      width: 100%;
+      height: 80px;
+      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+      .percent-cell {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-shell">
+    <h1 class="chart-title">Best Game-Day Atmosphere by City: Chiefs vs. Cardinals Fans</h1>
+    <p class="chart-subtitle">
+      Share of fans in each city who say Chiefs fans at Arrowhead or Cardinals fans at Busch Stadium
+      have the best game-day atmosphere in Missouri.
+    </p>
+    <p class="chart-note">
+      Cities shown: Kansas City, St. Louis, Springfield, Columbia, Cape Girardeau, Joplin (each with 100+ survey respondents).
+    </p>
+
+    <p class="legend">
+      <span><span class="legend-box chiefs"></span>Chiefs atmosphere (Arrowhead)</span>
+      <span><span class="legend-box cardinals"></span>Cardinals atmosphere (Busch Stadium)</span>
+    </p>
+
+    <table class="chart-grid">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Atmosphere vote share</th>
+          <th>Chiefs · Cards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Kansas City -->
+        <tr>
+          <td class="city-cell">Kansas City</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:91%;"></div>
+              <div class="bar cardinals" style="width:3%;"></div>
+              <span class="value-label left">91% Chiefs</span>
+              <span class="value-label right">3% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">91% · 3%</td>
+        </tr>
+
+        <!-- St. Louis -->
+        <tr>
+          <td class="city-cell">St. Louis</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:25%;"></div>
+              <div class="bar cardinals" style="width:44%;"></div>
+              <span class="value-label left">25% Chiefs</span>
+              <span class="value-label right">44% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">25% · 44%</td>
+        </tr>
+
+        <!-- Springfield -->
+        <tr>
+          <td class="city-cell">Springfield</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:69%;"></div>
+              <div class="bar cardinals" style="width:13%;"></div>
+              <span class="value-label left">69% Chiefs</span>
+              <span class="value-label right">13% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">69% · 13%</td>
+        </tr>
+
+        <!-- Columbia -->
+        <tr>
+          <td class="city-cell">Columbia</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:59%;"></div>
+              <div class="bar cardinals" style="width:13%;"></div>
+              <span class="value-label left">59% Chiefs</span>
+              <span class="value-label right">13% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">59% · 13%</td>
+        </tr>
+
+        <!-- Cape Girardeau -->
+        <tr>
+          <td class="city-cell">Cape Girardeau</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:34%;"></div>
+              <div class="bar cardinals" style="width:50%;"></div>
+              <span class="value-label left">34% Chiefs</span>
+              <span class="value-label right">50% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">34% · 50%</td>
+        </tr>
+
+        <!-- Joplin -->
+        <tr>
+          <td class="city-cell">Joplin</td>
+          <td class="bar-cell">
+            <div class="bar-track">
+              <div class="bar chiefs" style="width:71%;"></div>
+              <div class="bar cardinals" style="width:12%;"></div>
+              <span class="value-label left">71% Chiefs</span>
+              <span class="value-label right">12% Cards</span>
+            </div>
+          </td>
+          <td class="percent-cell">71% · 12%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="source">
+      Source: Action Network – 
+      <a href="https://www.actionnetwork.com/entertainment/missouri-fandom-map-chiefs-cardinals" target="_blank" rel="noopener noreferrer">
+        Missouri Fandom Map: Chiefs vs. Cardinals
+      </a>
+    </p>
+
+    <div class="embed-wrap">
+      <p class="embed-label">Share or embed this chart:</p>
+      <button type="button" class="embed-button" onclick="toggleEmbedBox2()">Show embed code</button>
+      <button type="button" class="copy-button" onclick="copyEmbedCode2()">Copy embed code</button>
+
+      <div id="embed-box-2" class="embed-box">
+        <textarea id="embed-textarea-2" class="embed-textarea" readonly>
+<iframe
+  src="https://aharris-jpg.github.io/missouri-survey/mo-gameday-atmosphere-chiefs-cardinals.html"
+  title="Best Game-Day Atmosphere by City: Chiefs vs. Cardinals Fans"
+  width="100%"
+  height="420"
+  style="border:0;max-width:900px;margin:0 auto;display:block;"
+  loading="lazy">
+</iframe></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleEmbedBox2() {
+      var box = document.getElementById('embed-box-2');
+      if (box.style.display === 'none' || box.style.display === '') {
+        box.style.display = 'block';
+      } else {
+        box.style.display = 'none';
+      }
+    }
+
+    function copyEmbedCode2() {
+      var textarea = document.getElementById('embed-textarea-2');
+      textarea.focus();
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        alert('Embed code copied to clipboard.');
+      } catch (e) {
+        alert('Please press Ctrl/Cmd + C to copy.');
+      }
+    }
+  </script>
+</body>
+</html>
